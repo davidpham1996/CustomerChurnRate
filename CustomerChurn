@@ -1,1 +1,105 @@
+#1: How many customers does our bank have?
 
+SELECT count(distinct CustomerId)
+FROM cust_churn;
+
+Answer: 10,000
+
+#2: How many customers have left our bank?
+
+SELECT count(CustomerId)
+FROM cust_churn
+WHERE Exited = 1;
+
+Answer: 2,038 Members 
+
+#3: Calculate the Churn Rate
+
+2,028/10,000 * 100 
+
+Answer: 20.38% 
+
+#4: What is the average demographic of customers who left our bank?
+
+SELECT round(avg(Age),0), max(gender)
+FROM cust_churn
+WHERE Exited = 1;
+
+Answer: 45 year old males
+
+#5: How long do these customers stay until they leave?
+
+SELECT round(avg(tenure),1)
+FROM cust_churn
+WHERE Exited = 1;
+
+Answer: 4.9 Years. 
+
+#6: How many of them had credit cards?
+
+SELECT count(HasCrCard)
+FROM cust_churn
+WHERE Exited = 1
+AND HasCrCard = 1;
+
+Answer: 1425 churned customers had credit cards. 
+
+#7: How many issued complaints before leaving?
+
+SELECT count(distinct CustomerId)
+FROM cust_churn
+WHERE Exited = 1
+AND Complain = 1;
+
+Answer: 2,034 customers complained before leaving. 
+
+#8: Out of 5, what was the average satisfaction score of churned customers?
+
+SELECT round(avg(`Satisfaction Score`),1)
+FROM cust_churn
+WHERE Exited = 1;
+
+Answer: 3 
+
+#9: How many points did the customers gained before leaving? 
+What is their average credit score?
+
+SELECT round(avg(`Point Earned`),0)
+FROM cust_churn
+WHERE Exited = 1;
+
+Answer: Churned customers earned an average of 604 points. 
+
+SELECT round(avg(CreditScore),0)
+FROM cust_churn
+WHERE Exited = 1;
+
+Answer: Churned customers have an average credit score of 645.
+
+#10: Which region had the highest churn rates?
+
+SELECT count(CustomerId)
+FROM cust_churn
+WHERE Exited = 1
+AND Geography = 'Germany'; 
+
+Germany Total = 814
+814 / 2038 = 39.9% 
+
+SELECT count(CustomerId)
+FROM cust_churn
+WHERE Exited = 1
+AND Geography = 'Spain'; 
+
+Spain Total = 413
+413 / 2038 = 20.3% 
+
+SELECT count(CustomerId)
+FROM cust_churn
+WHERE Exited = 1
+AND Geography = 'France'; 
+
+France Total = 811 
+811 / 2038 = 39.8%
+
+Answer: Germany has the highest churn rate, at 39.9%. 
