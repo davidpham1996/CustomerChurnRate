@@ -25,7 +25,9 @@ SELECT round(avg(Age),0), max(gender)
 FROM cust_churn
 WHERE Exited = 1;
 
-Answer: 45 year old males
+Answer: 
+Average age = 45 year old
+Gengder = male
 
 #5: How long do these customers stay until they leave?
 
