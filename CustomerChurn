@@ -51,7 +51,7 @@ FROM cust_churn
 WHERE Exited = 1
 AND Complain = 1;
 
-Answer: 2,034 customers complained before leaving. 
+Answer: 2,034 customers issued complaints before leaving. 
 
 #8: Out of 5, what was the average satisfaction score of churned customers?
 
